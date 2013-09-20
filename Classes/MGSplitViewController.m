@@ -241,7 +241,8 @@
 	}
 	
 	// Account for status bar, which always subtracts from the height (since it's always at the top of the screen).
-	height -= statusBarHeight;
+	if([[[UIDevice currentDevice] systemVersion] intValue] < 7)
+        height -= statusBarHeight;
 	
 	return CGSizeMake(width, height);
 }
